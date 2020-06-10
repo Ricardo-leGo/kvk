@@ -1,0 +1,64 @@
+<form [formGroup]= "obtainForm">
+    <h3 *ngIf="warBool">{{warningText}}</h3>
+    <div id="submitControls" >
+  
+      <input name="name"  type="text"  formControlName="name" placeholder="Name" required/>
+      <input name="lastname"  type="text"  formControlName="lastname" placeholder="Last Name" required/>
+     
+        <div>
+            <input name="mail"  type="email"  formControlName="mail" placeholder="Email"/>
+            <span *ngIf="warningMailBool" >{{warningMail}}</span>
+        </div>
+
+
+      <select name="countries"  type="text" formControlName="countries" required>
+        <option value="" >Country</option>
+          <option [value]="country.name" *ngFor="let country of datos">{{country.name}}</option>
+      </select>
+<div id="radioContainer">
+
+    <label class="labels" >
+        <input 
+        type="radio"
+        name="gender" 
+        formControlName="gender" 
+        [value]=0 
+        checked
+        required
+        >Female
+    </label>
+
+        <label class="labels">
+            <input 
+            type="radio"
+            name="gender" 
+            formControlName="gender" 
+            [value]=1 
+            required
+            >Male    
+        </label>
+        
+    </div>
+
+      <input name="phone"  
+        type="text" 
+        formControlName="phone"
+        placeholder="Phone"
+        minlength="10" 
+        maxlength="10" 
+        required/>
+
+        <div id="infContainer">
+            <button id="btnsend" (click)="showObtain($event)">Enviar datos</button>
+            <span *ngIf="warningPhoneBool">{{warningPhone}}</span>
+        </div>
+    </div>
+
+    <h3 *ngIf="doneForm">{{doneFormText}}</h3>
+
+  </form>
+
+
+
+
+

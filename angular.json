@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kavak"
+    }
+  },
+  "defaultProject": "kavak",
+  "cli": {
+    "analytics": false
+  }
 }
